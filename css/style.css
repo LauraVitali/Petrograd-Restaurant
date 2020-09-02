@@ -21,31 +21,72 @@ article {
 
 /* CSS that applies to browsers that support grid */
 @supports (display: grid) {
-    main {
-        max-width: none;
-        margin: 0;
+
+    /*MOBILE*/
+    @media only screen and (max-width: 599px) {
+
+        main {
+            max-width: none;
+            margin: 0;
+        }
+
+        article {
+            margin: 0;
+        }
+
+        main {
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+        }
+
+        section {
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+        }
+
     }
 
-    article {
-        margin: 0;
-    }
+    /*TABLET & LAPTOP*/
+    @media only screen and (min-width: 600px) {
+        main {
+            max-width: none;
+            margin: 0;
+        }
 
-    main {
-        display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-        /* Keep adding new columns - even if theres is no content for them. content does not always take up full width */
-        /*grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));*/
-        /* Don't add more columns than theres is content for. && +content "always" take full width */
-        grid-gap: 1rem;
+        article {
+            margin: 0;
+        }
+
+        #articles {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            /* Keep adding new columns - even if theres is no content for them. content does not always take up full width */
+            /*grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));*/
+            /* Don't add more columns than theres is content for. && +content "always" take full width */
+            grid-gap: 1rem;
+        }
     }
 }
 
+
 /* END @supports grid */
+
+h1 {
+    color: #fbfaf8;
+    font-size: 2rem;
+}
 
 article {
     display: flex;
     flex-flow: column;
     align-items: center;
+    margin-bottom: 2rem;
+    padding: 0;
+    border: none;
+    border-radius: 1rem;
+    background-color: #fbfaf8;
 }
 
 article > img {
@@ -56,11 +97,7 @@ article > img {
 
 /* has a default of stretched - we don't do that on images - remember: max-width: 100%; height: auto */
 
-article {
-    padding: 0;
-}
-
-article > h1 {
+article > h2 {
     margin: 3rem 0 0.5rem 0;
     color: #153626;
     font-size: 1.5rem;
@@ -140,12 +177,6 @@ article > .long-description {
 main {
     font-family: Avenir, Roboto, Helvetica, san-serif;
     font-size: 80%;
-}
-
-article {
-    border: none;
-    border-radius: 1rem;
-    background-color: #fbfaf8;
 }
 
 article > .buy {
