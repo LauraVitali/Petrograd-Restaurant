@@ -23,8 +23,26 @@ function showProduct(myProduct) {
     //clone template
     const myCopy = temp.cloneNode(true);
 
+    if(myProduct.discount){
+        myCopy.querySelector(".price").classList.add("cancelled");
+        myCopy.querySelector(".discount-price").classList.remove("hide");
+    }
+
+    if(myProduct.vegetarian){
+        myCopy.querySelector(".vegetarian").classList.remove("hide");
+    }
+
+    if(myProduct.soldout){
+        const p = document.createElement("p");
+        p.textContent = "SOLD OUT";
+        p.classList.add("soldout");
+        myCopy.querySelector("article").appendChild(p);
+    }
+
     //fill in the template
     myCopy.querySelector(".name").textContent = myProduct.name;
+    myCopy.querySelector(".short-description").textContent = myProduct.shortdescription;
+    myCopy.querySelector(".price").textContent = myProduct.price;
 
     //append
     const parentElem = document.querySelector("section#starters");
