@@ -4,16 +4,29 @@ fetch("https://kea-alt-del.dk/t5/api/productlist")
         console.log(res);
         return res.json();
     })
-    .then(function (data){
-    console.log(data);
-})
+    .then(function (data) {
+        console.log(data);
+        dataReceived(data)
+    })
 
-//loop through products
+function dataReceived(products) {
+    //loop through products
+    products.forEach(showProduct)
 
-//find template
+}
 
-//clone template
+//executed once for each product
+function showProduct(myProduct) {
+    //find template
+    const temp = document.querySelector("#product-template").content;
 
-//fill in the template
+    //clone template
+    const myCopy = temp.cloneNode(true);
 
-//append
+    //fill in the template
+    myCopy.querySelector(".name").textContent = myProduct.name;
+
+    //append
+    const parentElem = document.querySelector("section#starters");
+    parentElem.appendChild(myCopy);
+}
