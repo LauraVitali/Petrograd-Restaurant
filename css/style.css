@@ -1,0 +1,190 @@
+*,
+*:before,
+*:after {
+    box-sizing: border-box;
+}
+
+body {
+    padding: 1rem;
+    background-color: #599075;
+}
+
+main {
+    /* Fallback layout for browsers that do not support grid - see https://caniuse.com/#search=grid */
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+article {
+    margin: 1rem 0;
+}
+
+/* CSS that applies to browsers that support grid */
+@supports (display: grid) {
+    main {
+        max-width: none;
+        margin: 0;
+    }
+
+    article {
+        margin: 0;
+    }
+
+    main {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        /* Keep adding new columns - even if theres is no content for them. content does not always take up full width */
+        /*grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));*/
+        /* Don't add more columns than theres is content for. && +content "always" take full width */
+        grid-gap: 1rem;
+    }
+}
+
+/* END @supports grid */
+
+article {
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+}
+
+article > img {
+    order: -1;
+    align-self: stretch;
+    border-radius: 1rem;
+}
+
+/* has a default of stretched - we don't do that on images - remember: max-width: 100%; height: auto */
+
+article {
+    padding: 0;
+}
+
+article > h1 {
+    margin: 3rem 0 0.5rem 0;
+    color: #153626;
+    font-size: 1.5rem;
+    text-align: center;
+}
+
+.tags > h3 {
+    color: #0c1e15;
+    font-weight: 400;
+    font-size: 0.8rem;
+}
+
+.prices {
+    display: flex;
+    flex-direction: row;
+    align-content: space-between;
+    align-items: baseline;
+    margin: auto 0 1rem 0;
+}
+
+.price {
+    color: #153626;
+    margin: auto 0 1rem 0;
+}
+
+.cancelled {
+    text-decoration: line-through;
+    font-weight: 100;
+}
+
+.discount-price {
+    margin: 0 1rem;
+}
+
+article > .short-description {
+    margin: auto 1rem 1.5rem 1rem;
+    color: #0c1e15;
+    text-align: center;
+    font-size: 0.9rem;
+}
+
+article > .long-description {
+    margin: auto 1rem 1rem;
+    color: #0c1e15;
+    text-align: center;
+}
+
+.tags {
+    display: flex;
+    flex-direction: row;
+    align-content: space-between;
+    align-items: baseline;
+    margin: auto 0 3rem 0;
+}
+
+.vegetarian {
+    background-color: #dddfc4;
+    padding: 0.1rem 1rem;
+    border-radius: 1rem;
+    margin: 0 0.3rem;
+}
+
+.alcohol {
+    background-color: #dddfc4;
+    padding: 0.1rem 1rem;
+    border-radius: 1rem;
+    margin: 0 0.3rem;
+}
+
+.allergens {
+    background-color: #dddfc4;
+    padding: 0.1rem 1rem;
+    border-radius: 1rem;
+    margin: 0 0.3rem;
+}
+
+main {
+    font-family: Avenir, Roboto, Helvetica, san-serif;
+    font-size: 80%;
+}
+
+article {
+    border: none;
+    border-radius: 1rem;
+    background-color: #fbfaf8;
+}
+
+article > .buy {
+    margin-top: auto;
+    /* to push it to the bottom of the box & margin-top: auto takes the available space */
+    margin-left: 1rem;
+    margin-right: 1rem;
+    background: #f6c03e;
+    color: #fbfaf8;
+    padding: 0.5rem;
+    border: none;
+    border-radius: 2rem;
+    font-size: 1.2rem;
+    align-self: stretch;
+}
+
+article > .read-more {
+    margin-top: 1rem;
+    margin-bottom: 3rem;
+    margin-left: 1rem;
+    margin-right: 1rem;
+    color: #f6c03e;
+    padding: 0.5rem;
+    border-style: solid;
+    background-color: #fbfaf8;
+    border-radius: 2rem;
+    border-color: #f6c03e;
+    font-size: 1.2rem;
+    align-self: stretch;
+}
+
+/* ANIMATIONS */
+
+.hide {
+    display: none;
+}
+
+/*
+https://labs.jensimmons.com/2017/03-009.html
+view-source:https://labs.jensimmons.com/2017/03-009.html
+https://labs.jensimmons.com/2017/css/03-009.css
+*/
