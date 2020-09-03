@@ -11,14 +11,20 @@
 </head>
 
 <body>
+    <!-- Navigation -->
+    <header id="header">
+        <nav>
+            <a href="#">Restaurant Petrograd</a>
+        </nav>
+    </header>
 
-    <main class="courses">
+    <main class="productlist">
         <section id="starters">
-            <h1>Starters</h1>
-            <div id="articles">
-                <template id="product-template">
+            <template id="product-template">
+                <section class="productbody">
                     <article class="item">
                         <h2 class="name">Cabanossi with Beetrootcreme</h2>
+                        <img class="product-image" src="https://kea-alt-del.dk/t5/site/imgs/small/rodbede-cabanossi-sm.jpg" alt="">
                         <p class="short-description">Cabanossi med rødbedecreme og løg</p>
                         <div class="tags">
                             <h3 class="vegetarian hide">Vegetarian</h3>
@@ -29,37 +35,12 @@
                             <p class="price">49 Kr.</p>
                             <p class="discount-price hide">39 Kr.</p>
                         </div>
-                            <img src="imgs/small/rodbede-cabanossi-sm.jpg" alt="Cabanossi med rødbedecreme og løg">
+
                         <button class="buy">ADD TO CART</button>
                         <button class="read-more">READ MORE</button>
                     </article>
-                </template>
-
-            </div>
-        </section>
-
-        <section id="mainc">
-            <h1>Main Courses</h1>
-            <div id="articles">
-
-                <article class="item">
-                    <h2 class="name">Kyrgyzian Roulade</h2>
-                    <p class="short-description">Kirgisisk roulade bestående af nødder og rødkål</p>
-                    <div class="tags">
-                        <h3 class="vegetarian">Vegetarian</h3>
-                        <h3 class="allergens">Laktose</h3>
-                        <h3 class="allergens">Nødder</h3>
-                    </div>
-                    <p class="long-description hide">I det nordlige Kirgisistan består en væsentlig del af kostpyramiden af forskellige kålvarianter og nødder. Mama Dushku fandt på denne ret, som en hyldest til det røde flag med hammer og segl.</p>
-                    <div class="prices">
-                        <p class="price">89 Kr.</p>
-                    </div>
-                    <img src="imgs/small/kirgisiskroulade-sm.jpg" alt="Kirgisisk roulade bestående af nødder og rødkål">
-                    <button class="buy">ADD TO CART</button>
-                    <button class="read-more">READ MORE</button>
-                </article>
-
-            </div>
+                </section>
+            </template>
         </section>
 
     </main>

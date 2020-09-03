@@ -23,6 +23,10 @@ function showProduct(myProduct) {
     //clone template
     const myCopy = temp.cloneNode(true);
 
+    //show images
+    const img = myCopy.querySelector(".product-image");
+    img.setAttribute("src", `https://kea-alt-del.dk/t5/site/imgs/medium/${myProduct.image}-md.jpg`);
+
     if(myProduct.discount){
         myCopy.querySelector(".price").classList.add("cancelled");
         myCopy.querySelector(".discount-price").classList.remove("hide");
