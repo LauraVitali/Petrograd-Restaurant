@@ -1,22 +1,37 @@
+function init() {
+    fetch("https://kea-alt-del.dk/t5/api/categories").then(r => r.json()).then(
+        function (data) {
+            categoriesReceived(data)
+        })
+}
+init();
 
-//categories
-//function categoriesReceived(cats){
-//    createNavigation(cats);
-//    createSections(cats);
-//}
-//
-//function createSections(categories){
-//    //<section id="starters">
-//    //<h2>Starters</h2>
-//    categories.forEach(category => {
-//        const section = document.createElement("section");
-//        section.setAttribute("id",  category);
-//        const h1 = document.createElement("h1");
-//        h1.textContent = category;
-//        section.appendChild(h1);
-//        document.querySelector(".productlist").appendChild(section);
-//    })
-//}
+function categoriesReceived(cats) {
+    createNavigation(cats);
+    createSections(cats);
+}
+
+function createNavigation(categories) {
+    categories.forEach(cat => {
+        const a = document.createElement("a");
+        a.textContent = cat;
+        a.setAttribute("href", `#${cat }`);
+        document.querySelector("nav").appendChild(a);
+    })
+}
+
+function createSections(categories) {
+    //<section id="starters">
+    //<h2>Starters</h2>
+    categories.forEach(category => {
+        const section = document.createElement("section");
+        section.setAttribute("id", category);
+        const h1 = document.createElement("h1");
+        h1.textContent = category;
+        section.appendChild(h1);
+        document.querySelector(".productlist").appendChild(section);
+    })
+}
 
 
 //fetch data
@@ -48,16 +63,16 @@ function showProduct(myProduct) {
     const img = myCopy.querySelector(".product-image");
     img.setAttribute("src", `https://kea-alt-del.dk/t5/site/imgs/medium/${myProduct.image}-md.jpg`);
 
-    if(myProduct.discount){
+    if (myProduct.discount) {
         myCopy.querySelector(".price").classList.add("cancelled");
         myCopy.querySelector(".discount-price").classList.remove("hide");
     }
 
-    if(myProduct.vegetarian){
+    if (myProduct.vegetarian) {
         myCopy.querySelector(".vegetarian").classList.remove("hide");
     }
 
-    if(myProduct.soldout){
+    if (myProduct.soldout) {
         const p = document.createElement("p");
         p.textContent = "SOLD OUT";
         p.classList.add("soldout");
