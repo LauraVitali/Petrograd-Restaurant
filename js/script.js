@@ -1,3 +1,24 @@
+
+//categories
+//function categoriesReceived(cats){
+//    createNavigation(cats);
+//    createSections(cats);
+//}
+//
+//function createSections(categories){
+//    //<section id="starters">
+//    //<h2>Starters</h2>
+//    categories.forEach(category => {
+//        const section = document.createElement("section");
+//        section.setAttribute("id",  category);
+//        const h1 = document.createElement("h1");
+//        h1.textContent = category;
+//        section.appendChild(h1);
+//        document.querySelector(".productlist").appendChild(section);
+//    })
+//}
+
+
 //fetch data
 fetch("https://kea-alt-del.dk/t5/api/productlist")
     .then(function (res) {
@@ -49,6 +70,6 @@ function showProduct(myProduct) {
     myCopy.querySelector(".price").textContent = myProduct.price;
 
     //append
-    const parentElem = document.querySelector("section#starters");
+    const parentElem = document.querySelector(".productlist");
     parentElem.appendChild(myCopy);
 }
