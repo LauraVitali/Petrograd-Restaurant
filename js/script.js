@@ -87,20 +87,32 @@ function showProduct(myProduct) {
     //fill in the template
     myCopy.querySelector(".name").textContent = myProduct.name;
     myCopy.querySelector(".short-description").textContent = myProduct.shortdescription;
-    myCopy.querySelector(".price").textContent = myProduct.price;
-
-    const parentElemen = document.querySelector("section#" + myProduct.category);
-    parentElemen.appendChild(myCopy);
+    myCopy.querySelector(".price").textContent = myProduct.price+" Kr.";
 
 
+
+    //our cloning function
+    myCopy.querySelector(".read-more").addEventListener("click", () => {
+        fetch(`https://kea-alt-del.dk/t5/api/product?id=${myProduct.id}`)
+            .then(res => res.json())
+            .then(showDetails);
+    });
 
     //append
-    const parentElem = document.querySelector(".productlist");
-    parentElem.appendChild(myCopy);
+    const parentElemen = document.querySelector("section#" + myProduct.category);
+    parentElemen.appendChild(myCopy);
+}
+
+const modal = document.querySelector(".modal-background");
+//once we have our data, ....
+function showDetails(data) {
+    modal.querySelector(".modal-name").textContent = data.name;
+    modal.querySelector(".modal-description").textContent = data.longdescription;
+    //...
+    modal.classList.remove("hide");
 }
 
 //close the modal when clicked
-const modal = document.querySelector(".modal-background");
 modal.addEventListener("click", () => {
     modal.classList.add("hide");
 });
