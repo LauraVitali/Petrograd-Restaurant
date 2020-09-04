@@ -9,6 +9,7 @@ init();
 function categoriesReceived(cats) {
     createNavigation(cats);
     createSections(cats);
+    fetchProducts();
 }
 
 function createNavigation(categories) {
@@ -18,6 +19,10 @@ function createNavigation(categories) {
         a.setAttribute("href", `#${cat }`);
         document.querySelector("nav").appendChild(a);
     })
+}
+
+function fetchProducts() {
+
 }
 
 function createSections(categories) {
@@ -84,7 +89,18 @@ function showProduct(myProduct) {
     myCopy.querySelector(".short-description").textContent = myProduct.shortdescription;
     myCopy.querySelector(".price").textContent = myProduct.price;
 
+    const parentElemen = document.querySelector("section#" + myProduct.category);
+    parentElemen.appendChild(myCopy);
+
+
+
     //append
     const parentElem = document.querySelector(".productlist");
     parentElem.appendChild(myCopy);
 }
+
+//close the modal when clicked
+const modal = document.querySelector(".modal-background");
+modal.addEventListener("click", () => {
+    modal.classList.add("hide");
+});
