@@ -123,7 +123,10 @@ const modal = document.querySelector(".modal-background");
 function showDetails(data) {
     modal.querySelector(".modal-name").textContent = data.name;
     modal.querySelector(".modal-description").textContent = data.longdescription;
-    //...
+
+
+
+
     modal.classList.remove("hide");
 }
 
