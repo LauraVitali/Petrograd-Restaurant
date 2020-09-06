@@ -68,10 +68,25 @@ function showProduct(myProduct) {
     const img = myCopy.querySelector(".product-image");
     img.setAttribute("src", `https://kea-alt-del.dk/t5/site/imgs/medium/${myProduct.image}-md.jpg`);
 
+    const disc = document.createElement("p");
+
     if (myProduct.discount) {
+
         myCopy.querySelector(".price").classList.add("cancelled");
         myCopy.querySelector(".discount-price").classList.remove("hide");
+
+        function discPrice(price, percentage) {
+            return (price - (percentage / 100));
+        }
+
+        const totalPrice = discPrice(myProduct.price, myProduct.discount);
+
+        disc.textContent = `${totalPrice}`;
+    } else {
+        disc.textContent = `${myProduct.price}`;
     }
+
+    myCopy.querySelector(".discount-price").appendChild(disc);
 
     if (myProduct.vegetarian) {
         myCopy.querySelector(".vegetarian").classList.remove("hide");
@@ -87,7 +102,7 @@ function showProduct(myProduct) {
     //fill in the template
     myCopy.querySelector(".name").textContent = myProduct.name;
     myCopy.querySelector(".short-description").textContent = myProduct.shortdescription;
-    myCopy.querySelector(".price").textContent = myProduct.price+" Kr.";
+    myCopy.querySelector(".price").textContent = myProduct.price + " Kr.";
 
 
 

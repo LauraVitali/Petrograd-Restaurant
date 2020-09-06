@@ -12,36 +12,40 @@
 
 <body>
     <!-- Navigation -->
-    <header id="header">
+    <header class="headertext" id="header">
+        <a class="title headertext" href="#">Restaurant Petrograd</a>
         <nav>
-            <a href="#">Restaurant Petrograd</a>
+            <a class="headertext"></a>
         </nav>
     </header>
 
     <main class="productlist">
-        <!--<section id="starters">
-            <h1>Starters</h1>-->
-        <template id="product-template">
-            <!--<section class="productbody">-->
-            <article class="item">
-                <h2 class="name">Cabanossi with Beetrootcreme</h2>
-                <img class="product-image" src="https://kea-alt-del.dk/t5/site/imgs/small/rodbede-cabanossi-sm.jpg" alt="">
-                <p class="short-description">Cabanossi med rødbedecreme og løg</p>
-                <div class="tags">
-                    <h3 class="vegetarian hide">Vegetarian</h3>
-                    <h3 class="allergens">Laktose</h3>
-                </div>
-                <div class="prices">
-                    <p class="price">49 Kr.</p>
-                    <p class="discount-price hide">39 Kr.</p>
-                </div>
 
-                <button class="buy">ADD TO CART</button>
-                <button class="read-more">READ MORE</button>
+        <template id="product-template">
+
+            <article class="item">
+                <img class="product-image" src="https://kea-alt-del.dk/t5/site/imgs/small/rodbede-cabanossi-sm.jpg" alt="">
+
+
+                    <section class="product-body">
+                        <h2 class="name">Cabanossi with Beetrootcreme</h2>
+                        <p class="short-description">Cabanossi med rødbedecreme og løg</p>
+                        <div class="tags">
+                            <h3 class="vegetarian hide">Vegetarian</h3>
+                            <h3 class="allergens">Laktose</h3>
+                        </div>
+                        <div class="prices">
+                            <p class="price">49 Kr.</p>
+                            <p class="discount-price hide"></p>
+                        </div>
+                        <button class="buy">ADD TO CART</button>
+                        <button class="read-more">READ MORE</button>
+                    </section>
+
             </article>
-            <!--</section>-->
+
         </template>
-        <!--</section>-->
+
 
     </main>
 
